@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+// rgb(147, 186, 139) pea-green
+// rgba(0, 0, 0, 0.05) light-grey
+// rgba(147, 186, 139, 0.15) light-pea-green
+
+h1, p {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Utility Classes
+.py-0 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.my-0 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.mt-0 {
+    margin-top: 0px;
+}
+
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-white {
+    background-color: white;
+}
+
+.text-black {
+    color: black;
+}
+
+.mdi::before {
+    margin-right: 10px;
+}
+
+// Used for vertical alignment on login component
+.align-bottom > figure.mat-figure {
+    align-items: flex-end !important;
+}
+
+// Used for vertical alignment on login component
+.align-top > figure.mat-figure {
+    align-items: flex-start !important;
+}

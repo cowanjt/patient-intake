@@ -1,0 +1,23 @@
+$break-xs: 300px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+.card {
+    @media (min-width: $break-xs) {
+        min-width: 280px;
+    }
+    @media (min-width: $break-sm) {
+        min-width: 550px;
+    }
+}
+
+.form {
+    @media (min-width: $break-xs) {
+        max-width: 280px;
+    }
+    @media (min-width: $break-sm) {
+        max-width: 550px;
+    }
+}
