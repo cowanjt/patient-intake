@@ -10,19 +10,25 @@
       <mat-card-content>
         <form name="pii" class="form" autocomplete="off">
           <mat-form-field class="w-100">
-            <input matInput maxlength="50" placeholder="First Name">
+            <input matInput maxlength="50" [formControl]="firstNameControl" placeholder="First Name" required>
+            <mat-error *ngIf="firstNameControl.hasError('required')">
+              A first name is required.
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput maxlength="50" placeholder="Last Name">
+            <input matInput maxlength="50" [formControl]="lastNameControl" placeholder="Last Name" required>
+            <mat-error *ngIf="lastNameControl.hasError('required')">
+              A last name is required.
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" mask="00/00/0000">
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" mask="00/00/0000" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker touchUi #picker startView="year"></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="w-100">
             <!-- TODO: Allow mask input like a password. See the following article https://codeburst.io/a-simple-show-and-hide-password-directive-with-angular-fae7a6bd136 -->
-            <input type='text' matInput placeholder="Social Security Number" mask="000-00-0000">
+            <input type='text' matInput placeholder="Social Security Number" mask="000-00-0000" required>
           </mat-form-field>
         </form>
       </mat-card-content>
@@ -44,10 +50,10 @@
         <form name="physical-address" class="form" autocomplete="off">
           <p>
             <mat-form-field class="w-100">
-              <input class="disable-resize" matInput maxlength="95" placeholder="Address" required>
+              <input matInput maxlength="95" placeholder="Address" required>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <input class="disable-resize" matInput maxlength="95" placeholder="Address 2">
+              <input matInput maxlength="95" placeholder="Address 2">
             </mat-form-field>
           </p>
 
@@ -75,8 +81,8 @@
               </td>
             </tr>
           </table>
-          <section class="example-section">
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">Same as mailing address</mat-checkbox>
+          <section>
+            <mat-checkbox [(ngModel)]="checked">Same as mailing address</mat-checkbox>
           </section>
         </form>
       </mat-card-content>
@@ -96,10 +102,10 @@
         <form name="mailing-address" class="form" autocomplete="off">
           <p>
             <mat-form-field class="w-100">
-              <textarea class="disable-resize" matInput maxlength="95" placeholder="Address" required></textarea>
+              <textarea matInput maxlength="95" placeholder="Address" required></textarea>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <textarea class="disable-resize" matInput maxlength="95" placeholder="Address 2"></textarea>
+              <textarea matInput maxlength="95" placeholder="Address 2"></textarea>
             </mat-form-field>
           </p>
 
@@ -161,6 +167,7 @@
               Email is <strong>required</strong>
             </mat-error>
           </mat-form-field>
+          <label class="d-block mb-2">How should we contact you?</label>
           <mat-radio-group [(ngModel)]="preferredConfirmation">
             <mat-radio-button *ngFor="let confirmation of confirmations" [value]="confirmation">
               {{confirmation}}
@@ -173,8 +180,642 @@
 </mat-grid-list>
 <!-- Patient Contact Information End -->
 
+<!-- Employer Information -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Employer</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="employer-information" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Employer">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Employer Information End -->
 
-<!-- <mat-card-actions class="py-0">
-  <button mat-raised-button disabled (click)="signInWithLocal()" class="w-100" matTooltip="Sign in with local authentication"
-    aria-label="Button that displays a tooltip when focused or hovered over">Sign In</button>
-</mat-card-actions> -->
+<!-- Emergency Contact Information -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Emergency Contact Information</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="emergency-contact-information" class="form" autocomplete="off">
+          <label class="d-block mb-2">Select your marital status from the options below.</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="maritalStatus">
+            <mat-radio-button *ngFor="let maritalStatus of maritalStatuses" [value]="maritalStatus">
+              {{maritalStatus}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="100" placeholder="Name of parents/guardian (not living with you)">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Emergency Contact Information End -->
+
+<!-- Emergency Contact Address/Phone -->
+<mat-grid-list cols="12" rowHeight="500px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Emergency Contact Address &amp; Phone Number</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="emergency-contact-address" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="95" placeholder="Address" required>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="95" placeholder="Address 2">
+          </mat-form-field>
+          <table class="w-100" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="35" placeholder="City" required>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <mat-select placeholder="State" [formControl]="stateControl" required>
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{state.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="5" placeholder="ZIP Code" mask="00000" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <mat-form-field class="w-100">
+            <span matPrefix>+1 &nbsp;</span>
+            <input matInput placeholder="Mobile Number" mask="(000) 000-0000">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Emergency Contact Address/Phone End-->
+
+<!-- Referral -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Referral</mat-card-title>
+        <mat-card-subtitle class="text-center">We'd love to know how you found out about us.</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="referral" class="form" autocomplete="off">
+          <label class="d-block mb-2">Select how you heard about us from the options below.</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="referral">
+            <mat-radio-button *ngFor="let referral of referrals" [value]="referral">
+              {{referral}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Referral End-->
+
+<!-- Visit -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Purpose of Visit</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="visit" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="255" placeholder="What can we help you with?">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Visit End-->
+
+<!-- Account Manager -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Account Manager</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="account-manager" class="form" autocomplete="off">
+          <label class="d-block mb-2">Is the patient the account manager?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Account Manager End-->
+
+<!-- Account Manager Information -->
+<mat-grid-list cols="12" rowHeight="700px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Account Manager Information</mat-card-title>
+        <mat-card-subtitle class="text-center">This information is necessary for our files and is confidential.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="account-manager-information" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" [formControl]="firstNameManagerControl" placeholder="First Name" required>
+            <mat-error *ngIf="firstNameManagerControl.hasError('required')">
+              A first name is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" [formControl]="lastNameManagerControl" placeholder="Last Name" required>
+            <mat-error *ngIf="lastNameManagerControl.hasError('required')">
+              A last name is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="accountManagerDobPicker" placeholder="Date of Birth" mask="00/00/0000"
+              required>
+            <mat-datepicker-toggle matSuffix [for]="accountManagerDobPicker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #accountManagerDobPicker startView="year"></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <!-- TODO: Allow mask input like a password. See the following article https://codeburst.io/a-simple-show-and-hide-password-directive-with-angular-fae7a6bd136 -->
+            <input type='text' matInput placeholder="Social Security Number" mask="000-00-0000" required>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Employer">
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <input matInput maxlength="95" placeholder="Employer Address" required>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="95" placeholder="Employer Address 2">
+          </mat-form-field>
+
+          <table class="w-100" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="35" placeholder="Employer City" required>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <mat-select placeholder="Employer State" [formControl]="stateControl" required>
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{state.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="5" placeholder="Employer ZIP Code" mask="00000" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <mat-form-field class="w-100">
+            <span matPrefix>+1 &nbsp;</span>
+            <input matInput placeholder="Employer Phone Number" mask="(000) 000-0000">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Account Manager Information End -->
+
+<!-- Payment Preferences -->
+<mat-grid-list cols="12" rowHeight="500px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Payment Preferences &amp; Insurance</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="payment-preferences" class="form" autocomplete="off">
+          <label class="d-block mb-2">How do you prefer to pay for your current and future appointment?</label>
+          <mat-radio-group class="d-flex-column">
+            <mat-radio-button class="mb-2 ml-0" *ngFor="let payment of payments" [value]="payment">
+              {{payment}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Insurance Providor">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Group Number">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Member First Name">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Member Last Name">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Memeber ID">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Payment Preferences -->
+
+<!-- Review Terms and Conditions -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Terms &amp; Conditions</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions class="py-0">
+        <button mat-raised-button color="accent" (click)="openDialog()" class="w-100"
+          matTooltip="Review Terms &amp; Conditions"
+          aria-label="Button that displays terms and conditions dialog">Review Terms &amp; Conditions</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Review Terms and Conditions End -->
+
+<!-- Medical History -->
+<mat-grid-list cols="12" rowHeight="1250px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Medical History</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="medical-history" class="form" autocomplete="off">
+          <label class="d-block mb-2">Are you in good health?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Physician's Name">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="examPicker" placeholder="Last Examination" mask="00/00/0000" required>
+            <mat-datepicker-toggle matSuffix [for]="examPicker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #examPicker startView="year"></mat-datepicker>
+          </mat-form-field>
+          <label class="d-block mb-2">Have you ever had a serious illness or operation?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any illnesses or operations">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you taking any drugs or medication?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any drugs or medications you're currently taking">
+          </mat-form-field>
+          <label class="d-block mb-2">Do you use any tobacco products?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Do you use any marijuana products?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen">
+            <mat-radio-button *ngFor="let drugAllergen of drugAllergens" [value]="drugAllergen">
+              {{drugAllergen}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="materialAllergen">
+            <mat-radio-button *ngFor="let materialAllergen of materialAllergens" [value]="materialAllergen">
+              {{materialAllergen}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Do you have, or have your had, any of the following:</label>
+          <section>
+            <table class="w-100" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Heart Ailment</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">High Blood Pressure</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Diabetes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Excessive Bleeding</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Rheumatic Fever</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Kidney Disease</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Turmors or Radiation Treatment</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Sinus Trouble or Allergies</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Asthma or Hay Fever</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Head Injuries or Seizures</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Stomach Ulcers</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Epilepsy</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Stroke</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Glaucoma</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Canker Sores or Herpes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Joint Replacement</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Osteoporosis or Bisphosphonates</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="checked">Other</mat-checkbox>
+                </td>
+              </tr>
+            </table>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="50" placeholder="Other">
+            </mat-form-field>
+            <label class="d-block mb-2">Do you have, or have you ever had or been exposed to AIDS, Hepatitis, or Liver
+              Disease?</label>
+            <mat-radio-group>
+              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+                {{choice}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <label class="d-block mb-2 mt-5">Are you pregnant?</label>
+            <mat-radio-group>
+              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+                {{choice}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="50" placeholder="How many months?">
+            </mat-form-field>
+            <label class="d-block mb-2">Do you have any disease, condition, or problem not listed that you think I
+              should know about?</label>
+            <mat-radio-group>
+              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+                {{choice}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="50" placeholder="List any other disease, condition, or problem">
+            </mat-form-field>
+          </section>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Medical History End -->
+
+<!-- Dental History -->
+<mat-grid-list cols="12" rowHeight="1300px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Dental History</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="dental-history" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Current Dentist's First Name">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Current Dentist's Last Name">
+          </mat-form-field>
+
+          <p>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="95" placeholder="Address" required>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="95" placeholder="Address 2">
+            </mat-form-field>
+          </p>
+
+          <table class="w-100" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="35" placeholder="City" required>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <mat-select placeholder="State" [formControl]="stateControl" required>
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{state.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="w-100">
+                  <input matInput maxlength="5" placeholder="ZIP Code" mask="00000" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Reason for change">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="What made your best dentist special?">
+          </mat-form-field>
+          <label class="d-block mb-2">Have you ever had an unfavorable reaction to local anesthetic or previous dental
+            treatment?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any unfavorable reactions">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you happy with your teeth and smile?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50"
+              placeholder="If you could change anything about your teeth, what would it be?">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you concerned about losing teeth in your lifetime?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Have you been told or suspected you have gum disease?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Would you like information on new products or techniques to help with breath
+            odor?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mt-5">How long has it been since your last dental treatment?</label>
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <!-- In-line styling, because sometimes I just want to see the world burn -->
+                <mat-form-field style="max-width: 70px;">
+                  <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Days/Months/Years">
+                    <mat-option *ngFor="let timePeriod of timePeriods" [value]="timePeriod">
+                      {{timePeriod.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <label class="d-block mt-5">How long has it been since your last dental x-ray?</label>
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <!-- In-line styling, because sometimes I just want to see the world burn -->
+                <mat-form-field style="max-width: 70px;">
+                  <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Days/Months/Years">
+                    <mat-option *ngFor="let timePeriod of timePeriods" [value]="timePeriod">
+                      {{timePeriod.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+          <label class="d-block mb-2">Was your full mouth x-rayed?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">To what degree does dental treatment make you nervous?</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="dentalTreatmentDisposition">
+            <mat-radio-button *ngFor="let dentalTreatmentDisposition of dentalTreatmentDispositions"
+              [value]="dentalTreatmentDisposition">
+              {{dentalTreatmentDisposition}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Dental History End -->
+
+<!-- Confirmation and Form Submission -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Confirmation &amp; Information Submission</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <section>
+          <mat-checkbox [(ngModel)]="checked">I've disclosed my health &amp; dental histories to the best of my knowledge.</mat-checkbox>
+        </section>
+      </mat-card-content>
+      <mat-card-actions class="py-0">
+        <button mat-raised-button color="primary" class="w-100"
+          matTooltip="Confirm &amp; Submit Information"
+          aria-label="Button that submits patient intake form">Submit Patient Information</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Confirmation and Form Submission End -->

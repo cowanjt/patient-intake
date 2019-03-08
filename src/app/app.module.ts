@@ -8,16 +8,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MatTooltipModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatOptionModule, MatSelectModule,
-  MatCardModule, MatCheckboxModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatTooltipModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatOptionModule, MatSelectModule, MatIconModule,
+  MatCardModule, MatCheckboxModule, MatButtonModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule } from '@angular/material';
 
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { TermsAndConditionsDialogComponent } from './terms-and-conditions-dialog/terms-and-conditions-dialog.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TermsAndConditionsDialogComponent,
+  ],
+  entryComponents: [
+    TermsAndConditionsDialogComponent,
   ],
   imports: [
     HttpClientModule,
@@ -35,9 +42,13 @@ import { NgxMaskModule } from 'ngx-mask'
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
+    MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
+    MatIconModule,
     NgxMaskModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     Title

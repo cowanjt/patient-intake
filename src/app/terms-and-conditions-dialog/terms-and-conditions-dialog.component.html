@@ -1,0 +1,46 @@
+<!-- Terms and Conditions -->
+<div class="d-flex justify-content-end">
+  <button mat-icon-button>
+    <mat-icon aria-label="Button to close the dialog" (click)="onDeclineClick()">close</mat-icon>
+  </button>
+</div>
+
+<h1 mat-dialog-title class="text-center mb-0">Terms &amp; Conditions</h1>
+<div mat-dialog-content>
+  <p class="mb-2">
+    <span class="font-weight-bold">As a condition of your treatment by this office, financial arrangements must be made
+      in advance.
+      All emergency dental services, or any dental service performed without prior financial arrangements,
+      must be paid at the time services are performed.</span> Patients wo carry dental insurance understand that all
+    dntal services
+    furnished are charged directly to the patient and that he or she is personally responsible for payment. Our office
+    will
+    help you prepare insurance forms to assist in making collections from your insurance companis and will credit such
+    collections
+    to your account. However, we cannot render services on the assumption tat our charges will be paid by an insurance
+    company.
+  </p>
+  <p>
+    <span class="font-weight-bold">A service charge of 1.5% per month (18% per annum) will be charged on the unpaid
+      balance on all
+      accounts exceeding 60 days. If the insurance payments are denied or delayed past 60 days by your carrier, it
+      becomes the patient's
+      responsiblity to pay the bill and personally pursue the insurance carrier.</span> In consideratoin of the
+    professional serviecs
+    provided to me, or my dependents, I agree to pay for these services to the doctor, or his assignee, at the time said
+    services are
+    rendered. I further agree to pay all costs and reasonable attorney fees if suit be instituded hereunder. I grant my
+    permission to
+    you, or your assigns, to telephone me at home or at work to discuss matters related to this information.
+  </p>
+</div>
+<section>
+  <mat-checkbox [(ngModel)]="checked">I have read and agree to the terms and conditions</mat-checkbox>
+</section>
+<div mat-dialog-actions class="justify-content-center">
+  <button mat-raised-button color="primary" (click)="onDeclineClick()"
+    aria-label="Button to accept the terms and conditions">Accept</button>
+  <button mat-raised-button color="warn" (click)="onDeclineClick()"
+    aria-label="Button to decline the terms and conditions">Decline</button>
+</div>
+<!-- Terms and Conditions End -->
