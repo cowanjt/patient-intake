@@ -1,6 +1,6 @@
 {
-  "name": "patient-intake",
-  "short_name": "patient-intake",
+  "name": "Patient Intake",
+  "short_name": "Patient Intake",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

@@ -82,7 +82,7 @@
             </tr>
           </table>
           <section>
-            <mat-checkbox [(ngModel)]="checked">Same as mailing address</mat-checkbox>
+            <mat-checkbox>Same as mailing address</mat-checkbox>
           </section>
         </form>
       </mat-card-content>
@@ -102,10 +102,10 @@
         <form name="mailing-address" class="form" autocomplete="off">
           <p>
             <mat-form-field class="w-100">
-              <textarea matInput maxlength="95" placeholder="Address" required></textarea>
+              <input matInput maxlength="95" placeholder="Address" required>
             </mat-form-field>
             <mat-form-field class="w-100">
-              <textarea matInput maxlength="95" placeholder="Address 2"></textarea>
+              <input matInput maxlength="95" placeholder="Address 2">
             </mat-form-field>
           </p>
 
@@ -327,7 +327,7 @@
         <form name="account-manager" class="form" autocomplete="off">
           <label class="d-block mb-2">Is the patient the account manager?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -482,7 +482,7 @@
         <form name="medical-history" class="form" autocomplete="off">
           <label class="d-block mb-2">Are you in good health?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -496,7 +496,7 @@
           </mat-form-field>
           <label class="d-block mb-2">Have you ever had a serious illness or operation?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -505,7 +505,7 @@
           </mat-form-field>
           <label class="d-block mb-2">Are you taking any drugs or medication?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -514,25 +514,25 @@
           </mat-form-field>
           <label class="d-block mb-2">Do you use any tobacco products?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Do you use any marijuana products?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen">
-            <mat-radio-button *ngFor="let drugAllergen of drugAllergens" [value]="drugAllergen">
+          <mat-radio-group class="mb-5">
+            <mat-radio-button *ngFor="let drugAllergen of drugAllergens">
               {{drugAllergen}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="materialAllergen">
-            <mat-radio-button *ngFor="let materialAllergen of materialAllergens" [value]="materialAllergen">
+          <mat-radio-group class="mb-5">
+            <mat-radio-button *ngFor="let materialAllergen of materialAllergens">
               {{materialAllergen}}
             </mat-radio-button>
           </mat-radio-group>
@@ -541,68 +541,68 @@
             <table class="w-100" cellspacing="0">
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Heart Ailment</mat-checkbox>
+                  <mat-checkbox>Heart Ailment</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">High Blood Pressure</mat-checkbox>
+                  <mat-checkbox>High Blood Pressure</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Diabetes</mat-checkbox>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Excessive Bleeding</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Rheumatic Fever</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Kidney Disease</mat-checkbox>
+                  <mat-checkbox>Diabetes</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Turmors or Radiation Treatment</mat-checkbox>
+                  <mat-checkbox>Excessive Bleeding</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Sinus Trouble or Allergies</mat-checkbox>
+                  <mat-checkbox>Rheumatic Fever</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Asthma or Hay Fever</mat-checkbox>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Head Injuries or Seizures</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Stomach Ulcers</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="checked">Epilepsy</mat-checkbox>
+                  <mat-checkbox>Kidney Disease</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Stroke</mat-checkbox>
+                  <mat-checkbox>Turmors or Radiation Treatment</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Glaucoma</mat-checkbox>
+                  <mat-checkbox>Sinus Trouble or Allergies</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Canker Sores or Herpes</mat-checkbox>
+                  <mat-checkbox>Asthma or Hay Fever</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Joint Replacement</mat-checkbox>
+                  <mat-checkbox>Head Injuries or Seizures</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Osteoporosis or Bisphosphonates</mat-checkbox>
+                  <mat-checkbox>Stomach Ulcers</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="checked">Other</mat-checkbox>
+                  <mat-checkbox>Epilepsy</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox>Stroke</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox>Glaucoma</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox>Canker Sores or Herpes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox>Joint Replacement</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox>Osteoporosis or Bisphosphonates</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox>Other</mat-checkbox>
                 </td>
               </tr>
             </table>
@@ -612,13 +612,13 @@
             <label class="d-block mb-2">Do you have, or have you ever had or been exposed to AIDS, Hepatitis, or Liver
               Disease?</label>
             <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              <mat-radio-button *ngFor="let choice of choices">
                 {{choice}}
               </mat-radio-button>
             </mat-radio-group>
             <label class="d-block mb-2 mt-5">Are you pregnant?</label>
             <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              <mat-radio-button *ngFor="let choice of choices">
                 {{choice}}
               </mat-radio-button>
             </mat-radio-group>
@@ -628,7 +628,7 @@
             <label class="d-block mb-2">Do you have any disease, condition, or problem not listed that you think I
               should know about?</label>
             <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              <mat-radio-button *ngFor="let choice of choices">
                 {{choice}}
               </mat-radio-button>
             </mat-radio-group>
@@ -702,7 +702,7 @@
           <label class="d-block mb-2">Have you ever had an unfavorable reaction to local anesthetic or previous dental
             treatment?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -711,7 +711,7 @@
           </mat-form-field>
           <label class="d-block mb-2">Are you happy with your teeth and smile?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -721,20 +721,20 @@
           </mat-form-field>
           <label class="d-block mb-2">Are you concerned about losing teeth in your lifetime?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Have you been told or suspected you have gum disease?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Would you like information on new products or techniques to help with breath
             odor?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
@@ -744,7 +744,7 @@
               <td>
                 <!-- In-line styling, because sometimes I just want to see the world burn -->
                 <mat-form-field style="max-width: 70px;">
-                  <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+                  <input matInput type="number" placeholder="Amount">
                 </mat-form-field>
               </td>
               <td>
@@ -764,7 +764,7 @@
               <td>
                 <!-- In-line styling, because sometimes I just want to see the world burn -->
                 <mat-form-field style="max-width: 70px;">
-                  <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+                  <input matInput type="number" placeholder="Amount">
                 </mat-form-field>
               </td>
               <td>
@@ -780,12 +780,12 @@
           </table>
           <label class="d-block mb-2">Was your full mouth x-rayed?</label>
           <mat-radio-group>
-            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+            <mat-radio-button *ngFor="let choice of choices">
               {{choice}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">To what degree does dental treatment make you nervous?</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="dentalTreatmentDisposition">
+          <mat-radio-group class="mb-5">
             <mat-radio-button *ngFor="let dentalTreatmentDisposition of dentalTreatmentDispositions"
               [value]="dentalTreatmentDisposition">
               {{dentalTreatmentDisposition}}
@@ -807,7 +807,7 @@
       </mat-card-header>
       <mat-card-content>
         <section>
-          <mat-checkbox [(ngModel)]="checked">I've disclosed my health &amp; dental histories to the best of my knowledge.</mat-checkbox>
+          <mat-checkbox>I've disclosed my health &amp; dental histories to the best of my knowledge.</mat-checkbox>
         </section>
       </mat-card-content>
       <mat-card-actions class="py-0">
