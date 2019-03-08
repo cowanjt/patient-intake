@@ -4,6 +4,14 @@ $break-md: 768px;
 $break-lg: 992px;
 $break-xl: 1200px;
 
+.disable-resize {
+    resize: none;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
 .card {
     @media (min-width: $break-xs) {
         min-width: 280px;
