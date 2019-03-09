@@ -24,6 +24,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.png",
+              "src/icon.png",
               "src/assets",
               "src/manifest.json"
             ],
@@ -92,6 +93,7 @@
             "scripts": [],
             "assets": [
               "src/favicon.png",
+              "src/icon.png",
               "src/assets",
               "src/manifest.json"
             ]
