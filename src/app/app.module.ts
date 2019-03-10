@@ -40,6 +40,8 @@ import { TreatmentDispositionComponent } from './patient-histories/dental/treatm
 import { PreviousTreatmentComponent } from './patient-histories/dental/previous-treatment/previous-treatment.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormSelectionComponent } from './form-selection/form-selection.component';
+import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
+import { FormNavigationComponent } from './form-navigation/form-navigation.component';
 
 
 @NgModule({
@@ -71,6 +73,8 @@ import { FormSelectionComponent } from './form-selection/form-selection.componen
     PreviousTreatmentComponent,
     PageNotFoundComponent,
     FormSelectionComponent,
+    HiddenNavComponent,
+    FormNavigationComponent,
   ],
   entryComponents: [
     TermsAndConditionsDialogComponent,

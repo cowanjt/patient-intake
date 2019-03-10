@@ -1,5 +1,5 @@
 <!-- Allergies and Conditions-->
-<mat-grid-list cols="12" rowHeight="1250px" gutterSize="5px">
+<mat-grid-list cols="12" rowHeight="500px" gutterSize="5px">
   <mat-grid-tile [colspan]="12">
     <mat-card class="card">
       <mat-card-header class="justify-content-center">
@@ -8,13 +8,13 @@
       <mat-card-content>
         <form name="allergies-and-conditions" class="form" autocomplete="off">
           <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen">
+          <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen" name="drugAllergen">
             <mat-radio-button *ngFor="let drugAllergen of drugAllergens" [value]="drugAllergen">
               {{drugAllergen}}
             </mat-radio-button>
           </mat-radio-group>
           <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="materialAllergen">
+          <mat-radio-group class="mb-5" [(ngModel)]="materialAllergen" name="materialAllergen">
             <mat-radio-button *ngFor="let materialAllergen of materialAllergens" [value]="materialAllergen">
               {{materialAllergen}}
             </mat-radio-button>
@@ -24,68 +24,68 @@
             <table class="w-100" cellspacing="0">
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="heartAilment">Heart Ailment</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="heartAilment" name="heartAilment">Heart Ailment</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="highBloodPressure">High Blood Pressure</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="highBloodPressure" name="highBloodPressure">High Blood Pressure</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="diabetes">Diabetes</mat-checkbox>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <mat-checkbox [(ngModel)]="excessiveBleeding">Excessive Bleeding</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="rheumaticFever">Rheumatic Fever</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="kidneyDisease">Kidney Disease</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="diabetes" name="diabetes">Diabetes</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="radiationTreatment">Turmors or Radiation Treatment</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="excessiveBleeding" name="excessiveBleeding">Excessive Bleeding</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="allergies">Sinus Trouble or Allergies</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="rheumaticFever" name="rheumaticFever">Rheumatic Fever</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="asthma">Asthma or Hay Fever</mat-checkbox>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <mat-checkbox [(ngModel)]="seizures">Head Injuries or Seizures</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="ulcers">Stomach Ulcers</mat-checkbox>
-                </td>
-                <td>
-                  <mat-checkbox [(ngModel)]="epilepsy">Epilepsy</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="kidneyDisease" name="kidneyDisease">Kidney Disease</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="stroke">Stroke</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="radiationTreatment" name="radiationTreatment">Turmors or Radiation Treatment</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="glaucoma">Glaucoma</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="allergies" name="allergies">Sinus Trouble or Allergies</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="herpes">Canker Sores or Herpes</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="asthma" name="asthma">Asthma or Hay Fever</mat-checkbox>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="jointReplacement">Joint Replacement</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="seizures" name="seizures">Head Injuries or Seizures</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="osteoporosis">Osteoporosis or Bisphosphonates</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="ulcers" name="ulcers">Stomach Ulcers</mat-checkbox>
                 </td>
                 <td>
-                  <mat-checkbox [(ngModel)]="other">Other</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="epilepsy" name="epilepsy">Epilepsy</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="stroke" name="stroke">Stroke</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="glaucoma" name="glaucoma">Glaucoma</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="herpes" name="herpes">Canker Sores or Herpes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="jointReplacement" name="jointReplacement">Joint Replacement</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="osteoporosis" name="osteoporosis">Osteoporosis or Bisphosphonates</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="other" name="other">Other</mat-checkbox>
                 </td>
               </tr>
             </table>

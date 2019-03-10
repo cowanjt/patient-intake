@@ -1,5 +1,5 @@
 <!-- Referral -->
-<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+<mat-grid-list cols="12" rowHeight="175px" gutterSize="5px">
   <mat-grid-tile [colspan]="12">
     <mat-card class="card">
       <mat-card-header class="justify-content-center">
@@ -9,7 +9,7 @@
       <mat-card-content>
         <form name="referral" class="form" autocomplete="off">
           <label class="d-block mb-2">Select how you heard about us from the options below.</label>
-          <mat-radio-group class="mb-5" [(ngModel)]="referral">
+          <mat-radio-group class="mb-5" [(ngModel)]="referral" name="referral">
             <mat-radio-button *ngFor="let referral of referrals" [value]="referral">
               {{referral}}
             </mat-radio-button>

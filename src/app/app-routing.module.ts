@@ -25,6 +25,7 @@ import { TreatmentDispositionComponent } from './patient-histories/dental/treatm
 import { PreviousTreatmentComponent } from './patient-histories/dental/previous-treatment/previous-treatment.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormSelectionComponent } from './form-selection/form-selection.component';
+import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
 
 
 const routes: Routes = [
@@ -33,21 +34,14 @@ const routes: Routes = [
   { path: 'home', component: FormSelectionComponent },
   
   // Patient Information Routes 
-  { path: 'patient-intake/basic-information', component: BasicInformationComponent },
-
-  // BROKEN
-  { path: 'patient-intake/physical-address', component: PhysicalAddressComponent },
-  { path: 'patient-intake/mailing-address', component: MailingAddressComponent },
-
-  // BROKEN
-  { path: 'patient-intake/contact', component: ContactComponent },
-
-  // BROKEN
-  { path: 'patient-intake/emergency-contact', component: EmergencyContactComponent },
-  { path: 'patient-intake/emergency-contact-information', component: EmergencyContactInformationComponent },
+  { path: 'patient-information/basic-information', component: BasicInformationComponent },
+  { path: 'patient-information/physical-address', component: PhysicalAddressComponent },
+  { path: 'patient-information/mailing-address', component: MailingAddressComponent },
+  { path: 'patient-information/contact', component: ContactComponent },
+  { path: 'patient-information/emergency-contact', component: EmergencyContactComponent },
+  { path: 'patient-information/emergency-contact-information', component: EmergencyContactInformationComponent },
 
   // Account Information Routes
-  // BROKEN
   { path: 'account/referral', component: ReferralComponent },
   { path: 'account/reason-for-visit', component: VisitReasonComponent },
   { path: 'account/account-manager', component: AccountManagerComponent },
@@ -58,8 +52,6 @@ const routes: Routes = [
 
   // Patient Histories Routes - Medical
   { path: 'patient-histories/medical/basic', component: BasicComponent },
-
-  //BROKEN
   { path: 'patient-histories/medical/allergies-and-conditions', component: AlergiesAndConditionsComponent },
   { path: 'patient-histories/medical/safety-protocol', component: SafetyProtocolComponent },
 
@@ -67,16 +59,15 @@ const routes: Routes = [
   { path: 'patient-histories/dental/dentist', component: FormerDentistComponent },
   { path: 'patient-histories/dental/dentist-information', component: FormerDentistInformationComponent },
   { path: 'patient-histories/dental/care', component: CareComponent },
-
-  // BROKEN
   { path: 'patient-histories/dental/previous-treatment', component: PreviousTreatmentComponent },
-
-  // BROKEN
   { path: 'patient-histories/dental/xray', component: XrayComponent },
   { path: 'patient-histories/dental/treatment-disposition', component: TreatmentDispositionComponent },
 
   // Patient Histories Routes
   { path: 'patient-histories/confirmation', component: HistoriesConfirmationComponent },
+
+  // Hidden Navigation
+  { path: 'nav', component: HiddenNavComponent },
 
   // Status Page Routes
   { path: '**', component: PageNotFoundComponent }

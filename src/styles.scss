@@ -5,6 +5,12 @@
 // rgba(0, 0, 0, 0.05) light-grey
 // rgba(147, 186, 139, 0.15) light-pea-green
 
+$break-xs: 300px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
 h1, p {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -74,6 +80,10 @@ h1, p {
     font-weight: bold;
 }
 
+.justify-content-between {
+    justify-content: space-between;
+}
+
 .justify-content-center {
     justify-content: center;
 }
@@ -106,4 +116,24 @@ h1, p {
 // Used for vertical alignment on login component
 .align-top > figure.mat-figure {
     align-items: flex-start !important;
+}
+
+.disable-resize {
+    resize: none;
+}
+
+.card, .form  {
+    @media (min-width: $break-xs) {
+        width: 280px;
+    }
+    @media (min-width: $break-sm) {
+        width: 675px;
+    }
+}
+
+$elements: 6;
+@for $i from 1 to $elements {
+    mat-radio-button:nth-child(#{$i + 1}) {
+        margin-left: 25px;
+    }
 }

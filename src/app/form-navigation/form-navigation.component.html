@@ -1,0 +1,12 @@
+<mat-grid-list cols="12" rowHeight="110px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12" class="align-top">
+    <mat-card class="card">
+      <mat-card-content style="display: flex" class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" (click)="traverseForm('back')" matTooltip="Navigate back to previous page"
+          aria-label="Button that navigates to previous page">Back</button>
+        <button mat-raised-button color="primary" (click)="traverseForm('next')" matTooltip="Navigate back to next page"
+          aria-label="Button that navigates to next page">Next</button>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
