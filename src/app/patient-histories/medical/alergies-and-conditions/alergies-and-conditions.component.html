@@ -1,0 +1,101 @@
+<!-- Allergies and Conditions-->
+<mat-grid-list cols="12" rowHeight="1250px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Allergies &amp; Other Conditions</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="allergies-and-conditions" class="form" autocomplete="off">
+          <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen">
+            <mat-radio-button *ngFor="let drugAllergen of drugAllergens" [value]="drugAllergen">
+              {{drugAllergen}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
+          <mat-radio-group class="mb-5" [(ngModel)]="materialAllergen">
+            <mat-radio-button *ngFor="let materialAllergen of materialAllergens" [value]="materialAllergen">
+              {{materialAllergen}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Do you have, or have your had, any of the following:</label>
+          <section>
+            <table class="w-100" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="heartAilment">Heart Ailment</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="highBloodPressure">High Blood Pressure</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="diabetes">Diabetes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="excessiveBleeding">Excessive Bleeding</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="rheumaticFever">Rheumatic Fever</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="kidneyDisease">Kidney Disease</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="radiationTreatment">Turmors or Radiation Treatment</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="allergies">Sinus Trouble or Allergies</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="asthma">Asthma or Hay Fever</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="seizures">Head Injuries or Seizures</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="ulcers">Stomach Ulcers</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="epilepsy">Epilepsy</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="stroke">Stroke</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="glaucoma">Glaucoma</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="herpes">Canker Sores or Herpes</mat-checkbox>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-checkbox [(ngModel)]="jointReplacement">Joint Replacement</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="osteoporosis">Osteoporosis or Bisphosphonates</mat-checkbox>
+                </td>
+                <td>
+                  <mat-checkbox [(ngModel)]="other">Other</mat-checkbox>
+                </td>
+              </tr>
+            </table>
+            </section>
+            <mat-form-field class="w-100">
+              <input matInput maxlength="50" placeholder="Other">
+            </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Allergies and Conditions End -->

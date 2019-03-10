@@ -1,0 +1,21 @@
+<!-- Treatment Disposition -->
+<mat-grid-list cols="12" rowHeight="1300px" gutterSize="5px">
+    <mat-grid-tile [colspan]="12">
+      <mat-card class="card">
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="text-center">Treatment Disposition</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form name="care-and-standards" class="form" autocomplete="off">
+            <label class="d-block mb-2 mt-5">To what degree does dental treatment make you nervous?</label>
+            <mat-radio-group class="mb-5">
+              <mat-radio-button *ngFor="let dentalTreatmentDisposition of dentalTreatmentDispositions" [value]="dentalTreatmentDisposition">
+                {{dentalTreatmentDisposition}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- Treatment Disposition -->

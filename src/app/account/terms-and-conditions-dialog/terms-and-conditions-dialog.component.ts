@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { TermsAndConditionsRepsonse } from '../models/terms-and-conditions-repsonse';
+import { TermsAndConditionsRepsonse } from '../../models/terms-and-conditions-repsonse';
 
 @Component({
   selector: 'app-terms-and-conditions-dialog',
@@ -8,6 +8,8 @@ import { TermsAndConditionsRepsonse } from '../models/terms-and-conditions-repso
   styleUrls: ['./terms-and-conditions-dialog.component.scss']
 })
 export class TermsAndConditionsDialogComponent {
+
+  public checked: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<TermsAndConditionsDialogComponent>,

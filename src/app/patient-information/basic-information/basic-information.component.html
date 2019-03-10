@@ -1,0 +1,38 @@
+<!-- Personally Identifiable Information -->
+<mat-grid-list cols="12" rowHeight="400px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Patient Information</mat-card-title>
+        <mat-card-subtitle class="text-center">This information is necessary for our files and is confidential.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="pii" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" [formControl]="firstNameControl" placeholder="First Name" required>
+            <mat-error *ngIf="firstNameControl.hasError('required')">
+              A first name is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" [formControl]="lastNameControl" placeholder="Last Name" required>
+            <mat-error *ngIf="lastNameControl.hasError('required')">
+              A last name is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" mask="00/00/0000" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker startView="year"></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <!-- TODO: Allow mask input like a password. See the following article https://codeburst.io/a-simple-show-and-hide-password-directive-with-angular-fae7a6bd136 -->
+            <input type='text' matInput placeholder="Social Security Number" mask="000-00-0000" required>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Personally Identifiable Information End -->

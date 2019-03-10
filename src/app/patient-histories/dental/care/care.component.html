@@ -1,0 +1,59 @@
+<!-- Care -->
+<mat-grid-list cols="12" rowHeight="1300px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Care and Standards</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="care-and-standards" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Reason for change">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="What made your best dentist special?">
+          </mat-form-field>
+          <label class="d-block mb-2">Have you ever had an unfavorable reaction to local anesthetic or previous dental
+            treatment?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="unfavorableRections">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any unfavorable reactions">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you happy with your teeth and smile?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="oralSatisfaction">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="If you could change anything about your teeth, what would it be?">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you concerned about losing teeth in your lifetime?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="toothLossConcern">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Have you been told or suspected you have gum disease?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="gumDisease">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Would you like information on new products or techniques to help with breath
+            odor?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="halitosisInformation">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Care End -->

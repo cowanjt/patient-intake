@@ -1,0 +1,41 @@
+<!-- X-Ray -->
+<mat-grid-list cols="12" rowHeight="1300px" gutterSize="5px">
+    <mat-grid-tile [colspan]="12">
+      <mat-card class="card">
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="text-center">Dental X-Ray</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form name="dental-xray" class="form" autocomplete="off">
+            <label class="d-block mt-5">How long has it been since your last dental x-ray?</label>
+            <table cellspacing="0">
+              <tr>
+                <td>
+                  <!-- In-line styling, because sometimes I just want to see the world burn -->
+                  <mat-form-field style="max-width: 70px;">
+                    <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field>
+                    <mat-select placeholder="Days/Months/Years">
+                      <mat-option *ngFor="let timePeriod of timePeriods" [value]="timePeriod">
+                        {{timePeriod.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <label class="d-block mb-2">Was your full mouth x-rayed?</label>
+            <mat-radio-group>
+              <mat-radio-button *ngFor="let choice of choices" [value]="fullXray">
+                {{choice}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- X-Ray End -->

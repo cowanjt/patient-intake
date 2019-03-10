@@ -1,0 +1,21 @@
+<!-- Account Manager -->
+<mat-grid-list cols="12" rowHeight="200px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Account Manager</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="account-manager" class="form" autocomplete="off">
+          <label class="d-block mb-2">Is the patient the account manager?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="choice">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Account Manager End-->

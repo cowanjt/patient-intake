@@ -1,0 +1,39 @@
+<!-- Patient Contact Information -->
+<mat-grid-list cols="12" rowHeight="400px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Contact Information</mat-card-title>
+        <mat-card-subtitle class="text-center">We'll use this to remind you of appointments.</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="contact-information" class="form" autocomplete="off">
+          <mat-form-field class="w-100">
+            <span matPrefix>+1 &nbsp;</span>
+            <input matInput placeholder="Mobile Number" mask="(000) 000-0000">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <span matPrefix>+1 &nbsp;</span>
+            <input matInput placeholder="Home Number" mask="(000) 000-0000">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Email" [formControl]="emailFormControl" mask="A*@A*.SSS" required>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <label class="d-block mb-2">How should we contact you?</label>
+          <mat-radio-group [(ngModel)]="preferredConfirmation">
+            <mat-radio-button *ngFor="let confirmation of confirmations" [value]="confirmation">
+              {{confirmation}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Patient Contact Information End -->
