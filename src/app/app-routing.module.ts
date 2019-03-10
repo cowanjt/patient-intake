@@ -34,13 +34,20 @@ const routes: Routes = [
   
   // Patient Information Routes 
   { path: 'patient-intake/basic-information', component: BasicInformationComponent },
+
+  // BROKEN
   { path: 'patient-intake/physical-address', component: PhysicalAddressComponent },
   { path: 'patient-intake/mailing-address', component: MailingAddressComponent },
+
+  // BROKEN
   { path: 'patient-intake/contact', component: ContactComponent },
+
+  // BROKEN
   { path: 'patient-intake/emergency-contact', component: EmergencyContactComponent },
   { path: 'patient-intake/emergency-contact-information', component: EmergencyContactInformationComponent },
 
   // Account Information Routes
+  // BROKEN
   { path: 'account/referral', component: ReferralComponent },
   { path: 'account/reason-for-visit', component: VisitReasonComponent },
   { path: 'account/account-manager', component: AccountManagerComponent },
@@ -51,6 +58,8 @@ const routes: Routes = [
 
   // Patient Histories Routes - Medical
   { path: 'patient-histories/medical/basic', component: BasicComponent },
+
+  //BROKEN
   { path: 'patient-histories/medical/allergies-and-conditions', component: AlergiesAndConditionsComponent },
   { path: 'patient-histories/medical/safety-protocol', component: SafetyProtocolComponent },
 
@@ -58,7 +67,11 @@ const routes: Routes = [
   { path: 'patient-histories/dental/dentist', component: FormerDentistComponent },
   { path: 'patient-histories/dental/dentist-information', component: FormerDentistInformationComponent },
   { path: 'patient-histories/dental/care', component: CareComponent },
+
+  // BROKEN
   { path: 'patient-histories/dental/previous-treatment', component: PreviousTreatmentComponent },
+
+  // BROKEN
   { path: 'patient-histories/dental/xray', component: XrayComponent },
   { path: 'patient-histories/dental/treatment-disposition', component: TreatmentDispositionComponent },
 
