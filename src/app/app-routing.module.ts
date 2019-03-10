@@ -30,7 +30,7 @@ import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
 
 const routes: Routes = [
   // Root and Landing Routes
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/nav', pathMatch: 'full' },
   { path: 'home', component: FormSelectionComponent },
   
   // Patient Information Routes 
