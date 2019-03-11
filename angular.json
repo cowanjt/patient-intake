@@ -26,7 +26,8 @@
               "src/favicon.png",
               "src/icon.png",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss"
@@ -95,7 +96,8 @@
               "src/favicon.png",
               "src/icon.png",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/_redirects"
             ]
           }
         },
