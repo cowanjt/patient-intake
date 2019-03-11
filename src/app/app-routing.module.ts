@@ -25,13 +25,15 @@ import { TreatmentDispositionComponent } from './patient-histories/dental/treatm
 import { PreviousTreatmentComponent } from './patient-histories/dental/previous-treatment/previous-treatment.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormSelectionComponent } from './form-selection/form-selection.component';
+import { FormStepperComponent } from './form-stepper/form-stepper.component';
+import { FormCompleteComponent } from './form-complete/form-complete.component';
 import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
 
 
 const routes: Routes = [
   // Root and Landing Routes
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: FormSelectionComponent },
+  { path: 'home', component: FormStepperComponent },
   
   // Patient Information Routes 
   { path: 'patient-information/basic-information', component: BasicInformationComponent },
@@ -65,6 +67,12 @@ const routes: Routes = [
 
   // Patient Histories Routes
   { path: 'patient-histories/confirmation', component: HistoriesConfirmationComponent },
+
+  // Form Stepper Routes
+  { path: 'patient-intake-stepper', component: FormStepperComponent },
+
+  // Completed Form Route
+  { path: 'form-completed', component: FormCompleteComponent },
 
   // Hidden Navigation
   { path: 'nav', component: HiddenNavComponent },

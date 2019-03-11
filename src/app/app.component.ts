@@ -13,7 +13,7 @@ import { STATES } from './models/in-memory-states';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private title = 'Dillon Family Dental | Form Selection';
+  private title = 'Dillon Family Dental';
 
   public stateControl = new FormControl('', [Validators.required]);
   public selectFormControl = new FormControl('', Validators.required);

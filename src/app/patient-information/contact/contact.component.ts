@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms'
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-contact',
@@ -8,15 +8,17 @@ import { FormControl, Validators } from '@angular/forms'
 })
 export class ContactComponent implements OnInit {
 
-  public stateControl = new FormControl('', [Validators.required]);
-  public emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  public preferredConfirmation: string;
+  public frmStepTwo: FormGroup;
 
   public confirmations: string[] = ['E-mail', 'Text Message', 'Phone Call'];
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.frmStepTwo = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

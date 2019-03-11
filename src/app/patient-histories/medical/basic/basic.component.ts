@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic',
@@ -9,9 +10,14 @@ export class BasicComponent implements OnInit {
 
   public choices: string[] = ['Yes', 'No'];
 
-  constructor() { }
+  public frmStepThree: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.frmStepThree = this.formBuilder.group({
+      // Form Control Validators
+    });
   }
 
 }

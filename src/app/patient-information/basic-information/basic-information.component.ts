@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-information',
@@ -8,13 +8,16 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class BasicInformationComponent implements OnInit {
 
+  public frmStepOne: FormGroup;
   public firstNameControl = new FormControl('', [Validators.required]);
   public lastNameControl = new FormControl('', [Validators.required]);
   public dobControl = new FormControl('', [Validators.required]);
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.frmStepOne = this.formBuilder.group({
+    });
   }
 
 }

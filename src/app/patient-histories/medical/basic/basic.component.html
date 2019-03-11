@@ -1,59 +1,63 @@
 <!-- Basic -->
-<mat-grid-list cols="12" rowHeight="600px" gutterSize="5px">
-    <mat-grid-tile [colspan]="12">
-      <mat-card class="card">
-        <mat-card-header class="justify-content-center">
-          <mat-card-title class="text-center">Basic Questions</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form name="basic-questions" class="form" autocomplete="off">
-            <label class="d-block mb-2">Are you in good health?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="goodHealth">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="Physician's Name">
-            </mat-form-field>
-            <mat-form-field class="w-100">
-              <input matInput [matDatepicker]="examPicker" placeholder="Last Examination" mask="00/00/0000" required>
-              <mat-datepicker-toggle matSuffix [for]="examPicker"></mat-datepicker-toggle>
-              <mat-datepicker touchUi #examPicker startView="year"></mat-datepicker>
-            </mat-form-field>
-            <label class="d-block mb-2">Have you ever had a serious illness or operation?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="seriousIllness">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="List any illnesses or operations">
-            </mat-form-field>
-            <label class="d-block mb-2">Are you taking any drugs or medication?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="medication">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="List any drugs or medications you're currently taking">
-            </mat-form-field>
-            <label class="d-block mb-2">Do you use any tobacco products?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="tobaccoUse">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <label class="d-block mb-2 mt-5">Do you use any marijuana products?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="marijuanaUse">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!-- Basic End -->
+<mat-grid-list cols="12" rowHeight="700px" gutterSize="5px">
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Basic Questions</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="basic-questions" class="form" autocomplete="off" [formGroup]="frmStepThree">
+          <label class="d-block mb-2">Are you in good health?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="goodHealth">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Physician's Name">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="examPicker" placeholder="Last Examination" mask="00/00/0000" required>
+            <mat-datepicker-toggle matSuffix [for]="examPicker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #examPicker startView="year"></mat-datepicker>
+          </mat-form-field>
+          <label class="d-block mb-2">Have you ever had a serious illness or operation?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="seriousIllness">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any illnesses or operations">
+          </mat-form-field>
+          <label class="d-block mb-2">Are you taking any drugs or medication?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="medication">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any drugs or medications you're currently taking">
+          </mat-form-field>
+          <label class="d-block mb-2">Do you use any tobacco products?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="tobaccoUse">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Do you use any marijuana products?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="marijuanaUse">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Basic End -->

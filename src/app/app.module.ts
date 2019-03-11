@@ -8,8 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MatTooltipModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatOptionModule, MatSelectModule, MatIconModule,
-  MatCardModule, MatCheckboxModule, MatButtonModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule } from '@angular/material';
+import { MatTooltipModule, MatFormFieldModule, MatInputModule, MatGridListModule, MatOptionModule, MatSelectModule, MatIconModule, MatStepperModule, MatAutocompleteModule,
+  MatCardModule, MatCheckboxModule, MatButtonModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
 
 import { NgxMaskModule } from 'ngx-mask';
 import { TermsAndConditionsDialogComponent } from './account/terms-and-conditions-dialog/terms-and-conditions-dialog.component';
@@ -42,6 +42,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormSelectionComponent } from './form-selection/form-selection.component';
 import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
 import { FormNavigationComponent } from './form-navigation/form-navigation.component';
+import { FormStepperComponent } from './form-stepper/form-stepper.component';
+import { ProgressSpinnerDialogComponent } from './progress-spinner-dialog/progress-spinner-dialog.component';
+import { FormCompleteComponent } from './form-complete/form-complete.component';
 
 
 @NgModule({
@@ -75,9 +78,13 @@ import { FormNavigationComponent } from './form-navigation/form-navigation.compo
     FormSelectionComponent,
     HiddenNavComponent,
     FormNavigationComponent,
+    FormStepperComponent,
+    ProgressSpinnerDialogComponent,
+    FormCompleteComponent,
   ],
   entryComponents: [
     TermsAndConditionsDialogComponent,
+    ProgressSpinnerDialogComponent,
   ],
   imports: [
     HttpClientModule,
@@ -100,6 +107,9 @@ import { FormNavigationComponent } from './form-navigation/form-navigation.compo
     MatNativeDateModule,
     MatDialogModule,
     MatIconModule,
+    MatStepperModule, 
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
     NgxMaskModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

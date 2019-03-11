@@ -1,0 +1,18 @@
+<mat-horizontal-stepper linear #stepper>
+	<mat-step [stepControl]="frmStepOne">
+		<ng-template matStepLabel>Patient Information</ng-template>
+		<app-basic-information></app-basic-information>
+	</mat-step>
+	<mat-step [stepControl]="frmStepTwo">
+		<ng-template matStepLabel>Account</ng-template>
+		<app-contact></app-contact>
+  </mat-step>
+  <mat-step [stepControl]="frmStepThree">
+		<ng-template matStepLabel>Medical History</ng-template>
+		<app-basic></app-basic>
+  </mat-step>
+  <mat-step [stepControl]="frmStepFour">
+		<ng-template matStepLabel>Dental History</ng-template>
+		<app-former-dentist></app-former-dentist>
+	</mat-step>
+</mat-horizontal-stepper>
