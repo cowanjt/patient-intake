@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-care',
@@ -15,9 +17,17 @@ export class CareComponent implements OnInit {
 
   public choices: string[] = ['Yes', 'No'];
 
-  constructor() { }
+  public frmStepNineteen: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepNineteen = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepNineteen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

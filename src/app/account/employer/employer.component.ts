@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employer',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployerComponent implements OnInit {
 
-  constructor() { }
+  public frmStepSeven: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { 
+    this.frmStepSeven = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepSeven = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

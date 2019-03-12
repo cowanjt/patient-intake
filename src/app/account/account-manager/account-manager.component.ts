@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-account-manager',
@@ -11,9 +13,17 @@ export class AccountManagerComponent implements OnInit {
 
   public choices: string[] = ['Yes', 'No'];
 
-  constructor() { }
+  public frmStepTen: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepTen = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepTen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

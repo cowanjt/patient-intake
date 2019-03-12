@@ -8,7 +8,7 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <form name="account-manager-information" class="form" autocomplete="off">
+        <form name="account-manager-information" class="form" autocomplete="off" [formGroup]="frmStepEleven">
           <mat-form-field class="w-100">
             <input matInput maxlength="50" [formControl]="firstNameManagerControl" placeholder="First Name" required>
             <mat-error *ngIf="firstNameManagerControl.hasError('required')">
@@ -72,6 +72,10 @@
           </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button matStepperPrevious type="button">Back</button>
+          <button mat-raised-button matStepperNext type="button">Next</button>
+        </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

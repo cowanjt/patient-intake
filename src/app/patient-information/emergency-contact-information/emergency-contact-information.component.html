@@ -1,12 +1,12 @@
 <!-- Emergency Contact Information -->
-<mat-grid-list cols="12" rowHeight="325px" gutterSize="5px">
+<mat-grid-list cols="12" rowHeight="375px" gutterSize="5px">
   <mat-grid-tile [colspan]="12">
     <mat-card class="card">
       <mat-card-header class="justify-content-center">
         <mat-card-title class="text-center">Emergency Contact Address &amp; Phone Number</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="emergency-contact-address" class="form" autocomplete="off">
+        <form name="emergency-contact-address" class="form" autocomplete="off" [formGroup]="frmStepSix">
           <mat-form-field class="w-100">
             <input matInput maxlength="95" placeholder="Address" required>
           </mat-form-field>
@@ -22,12 +22,12 @@
               </td>
               <td>
                 <mat-form-field class="w-100">
-                  <mat-select placeholder="State" [formControl]="stateControl" required>
+                  <mat-select placeholder="State" formControlName="state" required>
                     <mat-option *ngFor="let state of states" [value]="state">
                       {{state.name}}
                     </mat-option>
                   </mat-select>
-                  <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error>
+                  <!-- <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error> -->
                 </mat-form-field>
               </td>
               <td>
@@ -43,6 +43,10 @@
           </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

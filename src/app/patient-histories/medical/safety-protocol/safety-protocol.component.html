@@ -1,41 +1,45 @@
 <!-- Safety Protocol -->
 <mat-grid-list cols="12" rowHeight="400px" gutterSize="5px">
-    <mat-grid-tile [colspan]="12">
-      <mat-card class="card">
-        <mat-card-header class="justify-content-center">
-          <mat-card-title class="text-center">Pregnancy &amp; Diseases</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form name="pregnancy-and-diseases" class="form" autocomplete="off">
-            <label class="d-block mb-2">Do you have, or have you ever had or been exposed to AIDS, Hepatitis, or Liver
-              Disease?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="isExposedToAids">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <label class="d-block mb-2 mt-5">Are you pregnant?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="isPregnant">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="How many months?">
-            </mat-form-field>
-            <label class="d-block mb-2">Do you have any disease, condition, or problem not listed that you think I
-              should know about?</label>
-            <mat-radio-group>
-              <mat-radio-button *ngFor="let choice of choices" [value]="otherConditions">
-                {{choice}}
-              </mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="List any other disease, condition, or problem">
-            </mat-form-field>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <!-- Safety Protocol End -->
+  <mat-grid-tile [colspan]="12">
+    <mat-card class="card">
+      <mat-card-header class="justify-content-center">
+        <mat-card-title class="text-center">Pregnancy &amp; Diseases</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form name="pregnancy-and-diseases" class="form" autocomplete="off" [formGroup]="frmStepSixteen">
+          <label class="d-block mb-2">Do you have, or have you ever had or been exposed to AIDS, Hepatitis, or Liver
+            Disease?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="isExposedToAids">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <label class="d-block mb-2 mt-5">Are you pregnant?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="isPregnant">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="How many months?">
+          </mat-form-field>
+          <label class="d-block mb-2">Do you have any disease, condition, or problem not listed that you think I
+            should know about?</label>
+          <mat-radio-group>
+            <mat-radio-button *ngFor="let choice of choices" [value]="otherConditions">
+              {{choice}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="List any other disease, condition, or problem">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- Safety Protocol End -->

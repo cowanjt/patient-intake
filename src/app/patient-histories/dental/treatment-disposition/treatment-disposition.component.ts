@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-treatment-disposition',
@@ -9,9 +10,17 @@ export class TreatmentDispositionComponent implements OnInit {
 
   public dentalTreatmentDispositions: string[] = ['None', 'Slightly', 'Moderately', 'Extremely'];
 
-  constructor() { }
+  public frmStepTwentyOne: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepTwentyOne = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepTwentyOne = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

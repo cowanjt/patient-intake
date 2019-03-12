@@ -10,13 +10,16 @@ export class BasicComponent implements OnInit {
 
   public choices: string[] = ['Yes', 'No'];
 
-  public frmStepThree: FormGroup;
+  public frmStepFourteen: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepFourteen = new FormGroup({});
+  }
 
   ngOnInit() {
-    this.frmStepThree = this.formBuilder.group({
-      // Form Control Validators
+    this.frmStepFourteen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
     });
   }
 

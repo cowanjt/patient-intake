@@ -7,7 +7,7 @@
         <mat-card-subtitle class="text-center">We'd love to know how you found out about us.</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <form name="referral" class="form" autocomplete="off">
+        <form name="referral" class="form" autocomplete="off" [formGroup]="frmStepEight">
           <label class="d-block mb-2">Select how you heard about us from the options below.</label>
           <mat-radio-group class="mb-5" [(ngModel)]="referral" name="referral">
             <mat-radio-button *ngFor="let referral of referrals" [value]="referral">
@@ -16,6 +16,10 @@
           </mat-radio-group>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button matStepperPrevious type="button">Back</button>
+          <button mat-raised-button matStepperNext type="button">Next</button>
+        </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

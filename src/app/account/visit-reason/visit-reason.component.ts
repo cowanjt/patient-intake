@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-visit-reason',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitReasonComponent implements OnInit {
 
-  constructor() { }
+  public frmStepNine: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepNine = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepNine = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

@@ -1,18 +1,115 @@
-<mat-horizontal-stepper linear #stepper>
-	<mat-step [stepControl]="frmStepOne">
+<mat-horizontal-stepper labelPosition="bottom" linear #mainStepper>
+	<mat-step>
 		<ng-template matStepLabel>Patient Information</ng-template>
-		<app-basic-information></app-basic-information>
+		<mat-horizontal-stepper class="child-stepper" labelPosition="bottom" linear #subStepperOne>
+			<mat-step [stepControl]="frmStepOne">
+				<ng-template matStepLabel>Basic Information</ng-template>
+				<app-basic-information></app-basic-information>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwo">
+				<ng-template matStepLabel>Physical Address</ng-template>
+				<app-physical-address></app-physical-address>
+			</mat-step>
+			<mat-step [stepControl]="frmStepThree">
+				<ng-template matStepLabel>Mailing Address</ng-template>
+				<app-mailing-address></app-mailing-address>
+			</mat-step>
+			<mat-step [stepControl]="frmStepFour">
+				<ng-template matStepLabel>Contact Information</ng-template>
+				<app-contact></app-contact>
+			</mat-step>
+			<mat-step [stepControl]="frmStepFive">
+				<ng-template matStepLabel>Emergency Contact</ng-template>
+				<app-emergency-contact></app-emergency-contact>
+			</mat-step>
+			<mat-step [stepControl]="frmStepSix">
+				<ng-template matStepLabel>Emergency Contact Information</ng-template>
+				<app-emergency-contact-information></app-emergency-contact-information>
+			</mat-step>
+		</mat-horizontal-stepper>
 	</mat-step>
-	<mat-step [stepControl]="frmStepTwo">
+	<mat-step>
 		<ng-template matStepLabel>Account</ng-template>
-		<app-contact></app-contact>
-  </mat-step>
-  <mat-step [stepControl]="frmStepThree">
+		<mat-horizontal-stepper class="child-stepper" labelPosition="bottom" linear #subStepperTwo>
+			<mat-step [stepControl]="frmStepSeven">
+				<ng-template matStepLabel>Employer</ng-template>
+				<app-employer></app-employer>
+			</mat-step>
+			<mat-step [stepControl]="frmStepEight">
+				<ng-template matStepLabel>Referral</ng-template>
+				<app-referral></app-referral>
+			</mat-step>
+			<mat-step [stepControl]="frmStepNine">
+				<ng-template matStepLabel>Visit</ng-template>
+				<app-visit-reason></app-visit-reason>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTen">
+				<ng-template matStepLabel>Account Manager</ng-template>
+				<app-account-manager></app-account-manager>
+			</mat-step>
+			<mat-step [stepControl]="frmStepEleven">
+				<ng-template matStepLabel>Account Manager Information</ng-template>
+				<app-account-manager-information></app-account-manager-information>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwelve">
+				<ng-template matStepLabel>Payment Preferences</ng-template>
+				<app-payment-preferences></app-payment-preferences>
+			</mat-step>
+			<mat-step [stepControl]="frmStepThirteen">
+				<ng-template matStepLabel>Terms &amp; Conditions</ng-template>
+				<app-terms-and-conditions></app-terms-and-conditions>
+			</mat-step>
+		</mat-horizontal-stepper>
+	</mat-step>
+	<mat-step>
 		<ng-template matStepLabel>Medical History</ng-template>
-		<app-basic></app-basic>
-  </mat-step>
-  <mat-step [stepControl]="frmStepFour">
+		<mat-horizontal-stepper class="child-stepper" labelPosition="bottom" linear #subStepperThree>
+			<mat-step [stepControl]="frmStepFourteen">
+				<ng-template matStepLabel>Basic Information</ng-template>
+				<app-basic></app-basic>
+			</mat-step>
+			<mat-step [stepControl]="frmStepFifteen">
+				<ng-template matStepLabel>Allergies
+					&amp; Conditions</ng-template>
+				<app-alergies-and-conditions></app-alergies-and-conditions>
+			</mat-step>
+			<mat-step [stepControl]="frmStepSixteen">
+				<ng-template matStepLabel>Safety Protocol</ng-template>
+				<app-safety-protocol></app-safety-protocol>
+			</mat-step>
+		</mat-horizontal-stepper>
+	</mat-step>
+	<mat-step>
 		<ng-template matStepLabel>Dental History</ng-template>
-		<app-former-dentist></app-former-dentist>
+		<mat-horizontal-stepper class="child-stepper" labelPosition="bottom" linear #subStepperFour>
+			<mat-step [stepControl]="frmStepSeventeen">
+				<ng-template matStepLabel>Dentist</ng-template>
+				<app-former-dentist></app-former-dentist>
+			</mat-step>
+			<mat-step [stepControl]="frmStepEighteen">
+				<ng-template matStepLabel>Dentist Information</ng-template>
+				<app-former-dentist-information></app-former-dentist-information>
+			</mat-step>
+			<mat-step [stepControl]="frmStepNineteen">
+				<ng-template matStepLabel>Care</ng-template>
+				<app-care></app-care>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwenty">
+				<ng-template matStepLabel>Previous Treatment</ng-template>
+				<app-previous-treatment></app-previous-treatment>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwentyOne">
+				<ng-template matStepLabel>X-Ray</ng-template>
+				<app-xray></app-xray>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwentyTwo">
+				<ng-template matStepLabel>Treatment Disposition</ng-template>
+				<app-treatment-disposition></app-treatment-disposition>
+			</mat-step>
+			<mat-step [stepControl]="frmStepTwentyThree">
+				<ng-template matStepLabel>Histories Confirmation</ng-template>
+				<app-histories-confirmation></app-histories-confirmation>
+			</mat-step>
+		</mat-horizontal-stepper>
 	</mat-step>
 </mat-horizontal-stepper>

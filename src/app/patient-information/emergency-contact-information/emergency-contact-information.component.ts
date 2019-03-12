@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { State } from '../../models/state';
 import { STATES } from '../../models/in-memory-states';
 
@@ -10,13 +10,21 @@ import { STATES } from '../../models/in-memory-states';
 })
 export class EmergencyContactInformationComponent implements OnInit {
 
-  public stateControl = new FormControl('', [Validators.required]);
+  public frmStepSix: FormGroup;
+
+  // public stateControl = new FormControl('', [Validators.required]);
 
   public states: State[] = STATES
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepSix = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepSix = this.formBuilder.group({
+      //state: ['', [Validators.required]],
+      state: []
+    });
   }
 
 }

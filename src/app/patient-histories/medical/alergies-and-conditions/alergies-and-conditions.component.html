@@ -6,7 +6,7 @@
         <mat-card-title class="text-center">Allergies &amp; Other Conditions</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="allergies-and-conditions" class="form" autocomplete="off">
+        <form name="allergies-and-conditions" class="form" autocomplete="off" [formGroup]="frmStepFifteen">
           <label class="d-block mb-2 mt-5">Are you sensitve or allergic to any of the following:</label>
           <mat-radio-group class="mb-5" [(ngModel)]="drugAllergen" name="drugAllergen">
             <mat-radio-button *ngFor="let drugAllergen of drugAllergens" [value]="drugAllergen">
@@ -46,7 +46,8 @@
               </tr>
               <tr>
                 <td>
-                  <mat-checkbox [(ngModel)]="radiationTreatment" name="radiationTreatment">Turmors or Radiation Treatment</mat-checkbox>
+                  <mat-checkbox [(ngModel)]="radiationTreatment" name="radiationTreatment">Turmors or Radiation
+                    Treatment</mat-checkbox>
                 </td>
                 <td>
                   <mat-checkbox [(ngModel)]="allergies" name="allergies">Sinus Trouble or Allergies</mat-checkbox>
@@ -89,12 +90,16 @@
                 </td>
               </tr>
             </table>
-            </section>
-            <mat-form-field class="w-100">
-              <input matInput maxlength="50" placeholder="Other">
-            </mat-form-field>
+          </section>
+          <mat-form-field class="w-100">
+            <input matInput maxlength="50" placeholder="Other">
+          </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

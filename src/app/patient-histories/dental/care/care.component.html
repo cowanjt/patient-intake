@@ -6,7 +6,7 @@
         <mat-card-title class="text-center">Care and Standards</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="care-and-standards" class="form" autocomplete="off">
+        <form name="care-and-standards" class="form" autocomplete="off" [formGroup]="frmStepNineteen">
           <mat-form-field class="w-100">
             <input matInput maxlength="50" placeholder="Reason for change">
           </mat-form-field>
@@ -53,6 +53,10 @@
           </mat-radio-group>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

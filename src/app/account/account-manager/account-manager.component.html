@@ -6,7 +6,7 @@
         <mat-card-title class="text-center">Account Manager</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="account-manager" class="form" autocomplete="off">
+        <form name="account-manager" class="form" autocomplete="off" [formGroup]="frmStepTen">
           <label class="d-block mb-2">Is the patient the account manager?</label>
           <mat-radio-group>
             <mat-radio-button *ngFor="let choice of choices" [value]="choice">
@@ -15,6 +15,10 @@
           </mat-radio-group>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button matStepperPrevious type="button">Back</button>
+          <button mat-raised-button matStepperNext type="button">Next</button>
+        </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

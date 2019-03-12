@@ -12,47 +12,19 @@ import { ProgressSpinnerDialogComponent } from '../../../progress-spinner-dialog
 })
 export class FormerDentistComponent implements OnInit {
 
-  public frmStepFour: FormGroup;
+  public frmStepY: FormGroup;
 
-  constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder) { }
+  public frmStepSeventeen: FormGroup;
 
-  public demoingProgressSpinner() {
-    let observable = new Observable(this.myObservable);
-    this.showProgressSpinnerUntilExecuted(observable);
+  constructor(private router: Router, private dialog: MatDialog, private formBuilder: FormBuilder) {
+    this.frmStepSeventeen = new FormGroup({});
   }
 
   ngOnInit() {
-    this.frmStepFour = this.formBuilder.group({
-      // Form Control Validators
+    this.frmStepSeventeen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
     });
-  }
-
-  myObservable(observer) {
-    setTimeout(() => {
-      observer.next("done waiting for 5 sec");
-      observer.complete();
-    }, 5000);
-  }
-
-  showProgressSpinnerUntilExecuted(observable: Observable<Object>) {
-    let dialogRef: MatDialogRef<ProgressSpinnerDialogComponent> = this.dialog.open(ProgressSpinnerDialogComponent, {
-      panelClass: 'transparent',
-      disableClose: true
-    });
-    let subscription = observable.subscribe(
-      (response: any) => {
-        subscription.unsubscribe();
-        //handle response
-        console.log(response);
-        dialogRef.close();
-        this.router.navigateByUrl('/form-completed');
-      },
-      (error) => {
-        subscription.unsubscribe();
-        //handle error
-        dialogRef.close();
-      }
-    );
   }
 
 }

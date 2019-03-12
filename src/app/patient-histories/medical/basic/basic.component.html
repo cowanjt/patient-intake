@@ -6,7 +6,8 @@
         <mat-card-title class="text-center">Basic Questions</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="basic-questions" class="form" autocomplete="off" [formGroup]="frmStepThree">
+        <!-- TODO: Rename formGroup -->
+        <form name="basic-questions" class="form" autocomplete="off" [formGroup]="frmStepFourteen">
           <label class="d-block mb-2">Are you in good health?</label>
           <mat-radio-group>
             <mat-radio-button *ngFor="let choice of choices" [value]="goodHealth">

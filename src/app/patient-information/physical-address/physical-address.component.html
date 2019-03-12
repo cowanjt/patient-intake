@@ -1,5 +1,5 @@
 <!-- Patient Physical Address -->
-<mat-grid-list cols="12" rowHeight="350px" gutterSize="5px">
+<mat-grid-list cols="12" rowHeight="400px" gutterSize="5px">
   <mat-grid-tile [colspan]="12">
     <mat-card class="card">
       <mat-card-header class="justify-content-center">
@@ -8,7 +8,7 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <form name="physical-address" class="form" autocomplete="off">
+        <form name="physical-address" class="form" autocomplete="off" [formGroup]="frmStepTwo">
           <p>
             <mat-form-field class="w-100">
               <input matInput maxlength="95" placeholder="Address" required>
@@ -27,12 +27,12 @@
               </td>
               <td>
                 <mat-form-field class="w-100">
-                  <mat-select placeholder="State" [formControl]="stateControl" required>
+                  <mat-select placeholder="State" formControlName="state" required>
                     <mat-option *ngFor="let state of states" [value]="state">
                       {{state.name}}
                     </mat-option>
                   </mat-select>
-                  <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error>
+                  <!-- <mat-error *ngIf="stateControl.hasError('required')">Please select a state</mat-error> -->
                 </mat-form-field>
               </td>
               <td>
@@ -43,10 +43,14 @@
             </tr>
           </table>
           <section>
-            <mat-checkbox [(ngModel)]="checked" name="mailingAddress">Same as mailing address</mat-checkbox>
+            <mat-checkbox name="mailingAddress">Same as mailing address</mat-checkbox>
           </section>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { State } from '../../models/state';
 import { STATES } from '../../models/in-memory-states';
 
@@ -10,13 +10,18 @@ import { STATES } from '../../models/in-memory-states';
 })
 export class MailingAddressComponent implements OnInit {
 
-  public stateControl = new FormControl('', [Validators.required]);
+  public frmStepThree: FormGroup;
 
   public states: State[] = STATES
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepThree = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepThree = this.formBuilder.group({
+      state: []
+    });
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-payment-preferences',
@@ -11,9 +13,17 @@ export class PaymentPreferencesComponent implements OnInit {
 
   public payments: string[] = ['Cash, Check, or Credit/Debit Card on Day of Treatment', 'Dillon Family Dental Gentle Dental Care Plan', 'Care Credit Card Payment'];
 
-  constructor() { }
+  public frmStepTwelve: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepTwelve = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepTwelve = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

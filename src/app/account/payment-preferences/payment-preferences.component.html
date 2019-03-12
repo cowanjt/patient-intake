@@ -6,7 +6,7 @@
         <mat-card-title class="text-center">Payment Preferences &amp; Insurance</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="payment-preferences" class="form" autocomplete="off">
+        <form name="payment-preferences" class="form" autocomplete="off" [formGroup]="frmStepTwelve">
           <label class="d-block mb-2">How do you prefer to pay for your current and future appointment?</label>
           <mat-radio-group class="d-flex-column">
             <mat-radio-button class="mb-2 ml-0" *ngFor="let payment of payments" [value]="payment">
@@ -30,6 +30,10 @@
           </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+          <button mat-raised-button matStepperPrevious type="button">Back</button>
+          <button mat-raised-button matStepperNext type="button">Next</button>
+        </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

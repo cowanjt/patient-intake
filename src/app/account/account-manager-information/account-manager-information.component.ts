@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { State } from '../../models/state';
 import { STATES } from '../../models/in-memory-states';
 
@@ -16,9 +16,17 @@ export class AccountManagerInformationComponent implements OnInit {
   public firstNameManagerControl = new FormControl('', [Validators.required]);
   public lastNameManagerControl = new FormControl('', [Validators.required]);
 
-  constructor() { }
+  public frmStepEleven: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepEleven = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepEleven = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

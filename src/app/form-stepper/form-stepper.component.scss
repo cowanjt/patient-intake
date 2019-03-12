@@ -1,0 +1,4 @@
+// ::ng-deep helps navigate through the shadow DOM created by Angular
+::ng-deep .child-stepper .mat-horizontal-stepper-header-container {
+    //display: none !important;
+}

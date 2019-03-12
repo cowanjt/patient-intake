@@ -41,7 +41,6 @@ import { PreviousTreatmentComponent } from './patient-histories/dental/previous-
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormSelectionComponent } from './form-selection/form-selection.component';
 import { HiddenNavComponent } from './hidden-nav/hidden-nav.component';
-import { FormNavigationComponent } from './form-navigation/form-navigation.component';
 import { FormStepperComponent } from './form-stepper/form-stepper.component';
 import { ProgressSpinnerDialogComponent } from './progress-spinner-dialog/progress-spinner-dialog.component';
 import { FormCompleteComponent } from './form-complete/form-complete.component';
@@ -77,7 +76,6 @@ import { FormCompleteComponent } from './form-complete/form-complete.component';
     PageNotFoundComponent,
     FormSelectionComponent,
     HiddenNavComponent,
-    FormNavigationComponent,
     FormStepperComponent,
     ProgressSpinnerDialogComponent,
     FormCompleteComponent,

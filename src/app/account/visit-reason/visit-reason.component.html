@@ -6,12 +6,16 @@
         <mat-card-title class="text-center">Purpose of Visit</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form name="visit" class="form" autocomplete="off">
+        <form name="visit" class="form" autocomplete="off" [formGroup]="frmStepNine">
           <mat-form-field class="w-100">
             <input matInput maxlength="255" placeholder="What can we help you with?">
           </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

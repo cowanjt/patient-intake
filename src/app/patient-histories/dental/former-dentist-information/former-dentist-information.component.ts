@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { State } from '../../../models/state';
 import { STATES } from '../../../models/in-memory-states';
 
@@ -14,9 +14,17 @@ export class FormerDentistInformationComponent implements OnInit {
 
   public states: State[] = STATES
 
-  constructor() { }
+  public frmStepEighteen: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepEighteen = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepEighteen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

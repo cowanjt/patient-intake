@@ -5,10 +5,15 @@
       <mat-card-header class="justify-content-center">
         <mat-card-title class="text-center">Terms &amp; Conditions</mat-card-title>
       </mat-card-header>
-      <mat-card-actions class="py-0">
-        <button mat-raised-button color="accent" (click)="openDialog()" class="w-100"
-          matTooltip="Review Terms &amp; Conditions"
-          aria-label="Button that displays terms and conditions dialog">Review Terms &amp; Conditions</button>
+      <mat-card-content>
+        <form name="referral" class="form" autocomplete="off" [formGroup]="frmStepThirteen">
+          <button mat-raised-button color="accent" (click)="openDialog()" class="w-100" matTooltip="Review Terms &amp; Conditions"
+            aria-label="Button that displays terms and conditions dialog">Review Terms &amp; Conditions</button>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button matStepperNext type="button">Next</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

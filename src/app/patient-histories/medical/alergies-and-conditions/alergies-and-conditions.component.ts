@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-alergies-and-conditions',
@@ -32,9 +34,17 @@ export class AlergiesAndConditionsComponent implements OnInit {
   
   public materialAllergens: string[] = ['Latex', 'Plastics', 'Metals'];
 
-  constructor() { }
+  public frmStepFifteen: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepFifteen = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepFifteen = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }

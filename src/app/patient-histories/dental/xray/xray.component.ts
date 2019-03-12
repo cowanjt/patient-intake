@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TimePeriod } from '../../../models/time-period';
 import { TIMEPERIODS } from '../../../models/in-memory-time-periods';
 
@@ -21,9 +22,17 @@ export class XrayComponent implements OnInit {
 
   public fullXray: string;
 
-  constructor() { }
+  public frmStepTwenty: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.frmStepTwenty = new FormGroup({});
+  }
 
   ngOnInit() {
+    this.frmStepTwenty = this.formBuilder.group({
+      //email: ['', [Validators.required, Validators.email]],
+      preferredConfirmation: []
+    });
   }
 
 }
